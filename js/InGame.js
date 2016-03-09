@@ -98,9 +98,10 @@ $(document).ready(function()
 		{
 			ZonneSeleted($(this));
 			if (last_block_selected > 0)
-				$("div#" + last_block_selected).toggleClass("selected");
+				$("div#" + last_block_selected).removeClass("selected");
+			if (last_block_selected != $(this).attr("id"))
+				$(this).toggleClass("selected");
 			last_block_selected = $(this).attr("id");
-			$(this).toggleClass("selected");
 			$("div.action").show();
 		}
 		else if ($("button.attaque").hasClass("active") && $(this).hasClass("possible"))
