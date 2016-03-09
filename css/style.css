@@ -1,0 +1,74 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #000;
+	min-width: 1050px;
+	min-height: 410px;
+	color: #fff;
+}
+div#div_WhoPlay > div
+{
+	display: none;
+}
+div.web_center_block
+{
+	margin: 0 auto;
+}
+div#div_map > div.row
+{
+	height: 81px;
+}
+div#div_map > div.row > div.map_block,
+div#div_map > div.row > div.map_void
+{
+	width: 80px;
+	height: 77px;
+	border: 2px solid #9BB24A;
+	float: left;
+}
+div#div_map > div.row > div.map_last_void
+{
+	border-bottom: 2px solid #000;
+	border-right: 2px solid #000;
+}
+div#div_map > div.row > div.map_first_void
+{
+	border-top: 2px solid #000;
+	border-left: 2px solid #000;
+}
+div#div_map > div.row > div.human
+{
+	background-image: url('../img/maison2.png');
+}
+div#div_map > div.row > div.nature
+{
+	background-image: url('../img/arbre2.png');
+}
+div#div_map > div.row > div.map_block.possible
+{
+	border: 2px solid blue;
+}
+div#div_map > div.row > div.map_block.selected
+{
+	border: 2px solid #ffff33;
+}
+div#div_map > div.row > div.nothing,
+div#div_map > div.row > div.map_void
+{
+	background-image: url('../img/herbe2.png');
+}
+div.action
+{
+	display: none;
+}
+button {
+	height: 75px;
+	width: 150px;
+}
+button.active
+{
+	background-color: #ff0000;
+}

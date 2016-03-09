@@ -1,132 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TEST</title>
-	<style>
-		div.row
-		{
-			dislay block;
-			height: 40px;
-		}
-		div.block
-		{
-			width: 40px;
-			height: 40px;
-			float: left;
-			cursor: pointer;
-		}
-		div.void
-		{
-			width: 40px;
-			height: 40px;
-			float: left;
-			background-color: #fff;
-		}
-		div.block.bleu
-		{
-			background-color: #0000ff;
-		}
-		div.block.vert
-		{
-			background-color: #00ff00;
-		}
-		div.block.gris
-		{
-			background-color: #c3c3c3;
-		}
-		div.block.possible
-		{
-			background-color: #ff0000;
-		}
-	</style>
+	<title>NvsH</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div id="map"></div>
+	<div class="web_center_block">
+		<div id="div_WhoPlay">
+			<div id="NaturePlay">Au tour de la Nature</div>
+			<div id="HumanPlay">Au tour Des Hommes</div>
+		</div>
+		<div id="div_map"></div>
+		<div class="action">
+			<button class="attaque">Attaque</button>
+			<button class="defance">Defence</button>
+		</div>
+		<div id="div_score">Coucou</div>
+	</div>
 </body>
-	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-	<script>
-		var height	= 10;
-		var width =21;
-		var nb = 1;
-		var last_possible = -1;
-		var content = "";
-
-		function selectxy(id, char)
-		{
-			var x = (id%width) - 1;
-			var y = parseInt(id/width);
-			if (x < 0)
-			{
-				x = width - 1;
-				y--;
-			}
-			if (char == "y")
-				return (y);
-			return(x);
-		}
-
-		function selectcircle(id, rond)
-		{
-			var x = selectxy(id , "x");
-			var y = selectxy(id , "y");
-			for (var i = rond; i > 0; i--)
-			{
-				$("div.row#"+(y)+"_row").find("div."+(x - i)+"_block").toggleClass("possible");
-				$("div.row#"+(y)+"_row").find("div."+(x + i)+"_block").toggleClass("possible");
-				$("div.row#"+(y + i)+"_row").find("div."+(x)+"_block").toggleClass("possible");
-				$("div.row#"+(y - i)+"_row").find("div."+(x)+"_block").toggleClass("possible");
-				for (var j = rond; j > 0; --j)
-				{
-					if (i > j)
-					{
-						$("div.row#"+(y - (i - j))+"_row").find("div."+(x + j)+"_block").toggleClass("possible");
-						$("div.row#"+(y + (i - j))+"_row").find("div."+(x + j)+"_block").toggleClass("possible");
-						$("div.row#"+(y - (i - j))+"_row").find("div."+(x - j)+"_block").toggleClass("possible");
-						$("div.row#"+(y + (i - j))+"_row").find("div."+(x - j)+"_block").toggleClass("possible");
-					}
-				};
-
-			}
-		}
-
-		for (var i = 0; i < height; i++)
-		{
-			content += "<div class =\"row\" id=\""+i+"_row\" >";
-			for (var j = 0; j < width; j++)
-			{
-				if (j == 0)
-					for (var k = (height - i - 1); k > 0; k--) {
-						content +="<div class=\"void\"></div>";
-					};
-				var couleur = "gris";
-				if (j < width/3)
-					couleur = "bleu";
-				if (j >= (width/3)*2)
-					couleur = "vert";
-				content += "<div id=\""+ nb +"\" class=\""+ j +"_block "+couleur+" block\">"+nb+"</div>";
-				nb++;
-			};
-			content += "</div>";
-		};
-
-		document.getElementById('map').innerHTML = content;
-		$("div#map").css("width", (width * 60) + "px")
-		$( document ).ready(function()
-		{
-			$("div.block").click(function(){
-				if (last_possible >= 0 &&
-					parseInt($(this).attr("id")) != last_possible)
-				{
-					selectcircle(last_possible, 4);
-					$("div.block#" + last_possible).toggleClass("possible");
-				}
-				$(this).toggleClass("possible");
-				selectcircle(parseInt($(this).attr("id")), 4);
-				if ($(this).hasClass("possible"))
-					last_possible = parseInt($(this).attr("id"));
-				else
-					last_possible = -1;
-			});
-		});
+	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/map_gen.js"></script>
+	<script type="text/javascript">
+		var map_width = 12;
+		var map_height = 5;
+		var map_block_human = 0;
+		var map_block_nature = 0;
+		var map_block_nothing = 0;
+		var You_Are = "human";
+		GenMap(map_width, map_height);
 	</script>
+	<script type="text/javascript" src="js/InGame.js"></script>
 </html>
