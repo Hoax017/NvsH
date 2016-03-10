@@ -48,11 +48,11 @@ function ZonneSeleted(div)
 	if (last_possible >= 0 &&
 		parseInt(div.attr("id")) != last_possible)
 	{
-		selectcircle(last_possible, 4);
+		selectcircle(last_possible, select_aura);
 		$("div.map_block#" + last_possible).toggleClass("possible");
 	}
 	div.toggleClass("possible");
-	selectcircle(parseInt(div.attr("id")), 4);
+	selectcircle(parseInt(div.attr("id")), select_aura);
 	if (div.hasClass("possible"))
 		last_possible = parseInt(div.attr("id"));
 	else

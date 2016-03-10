@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_gen.js                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaitre <amaitre@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/10 22:34:12 by amaitre           #+#    #+#             */
+/*   Updated: 2016/03/10 22:47:02 by amaitre          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 var map_block_human = 0;
 var map_block_nature = 0;
 var map_block_nothing = 0;
@@ -22,12 +34,12 @@ function GenMap(map_width, map_height) {
 					map_content +="\"></div>";
 				};
 			map_block_status = "nothing";
-			if (j < (map_width/3))
+			if (j < (map_width/4))
 			{
 				map_block_human++;
 				map_block_status = "human";
 			}
-			else if (j >= (map_width/3) * 2)
+			else if (j >= (map_width/4) * 3)
 			{
 				map_block_nature++;
 				map_block_status = "nature";
