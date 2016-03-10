@@ -1,3 +1,7 @@
+var map_block_human = 0;
+var map_block_nature = 0;
+var map_block_nothing = 0;
+
 function GenMap(map_width, map_height) {
 	var map_content;
 	var map_block_status;
@@ -43,4 +47,5 @@ function GenMap(map_width, map_height) {
 	$("div#div_map").css("width", ((map_width + map_height - 1) * 84) + "px")
 	$("div.web_center_block").css("width", ((map_width + map_height - 1) * 84) + "px")
 	document.getElementById("div_map").innerHTML = map_content;
+	actualiseScore();
 }

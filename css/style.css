@@ -5,8 +5,6 @@
 }
 body {
 	background-color: #000;
-	min-width: 1050px;
-	min-height: 410px;
 	color: #fff;
 }
 div#div_WhoPlay > div
@@ -16,6 +14,26 @@ div#div_WhoPlay > div
 div.web_center_block
 {
 	margin: 0 auto;
+}
+div#GameMenu
+{
+	float: right;
+	position: fixed;
+	width: 300px;
+	height: 150px;
+}
+div#GameMenu > div.liste_action
+{
+	float: right;
+	width: 150px;
+	height: 150px;
+}
+div#GameMenu > div.liste_attaque,
+div#GameMenu > div.liste_defance
+{
+	float: left;
+	width: 150px;
+	height: 150px;
 }
 div#div_map > div.row
 {
@@ -27,6 +45,8 @@ div#div_map > div.row > div.map_void
 	width: 80px;
 	height: 77px;
 	border: 2px solid #9BB24A;
+	line-height: 77px;
+	white-space: nowrap;
 	float: left;
 }
 div#div_map > div.row > div.map_last_void
@@ -49,7 +69,12 @@ div#div_map > div.row > div.nature
 }
 div#div_map > div.row > div.map_block.possible
 {
-	border: 2px solid blue;
+	text-align: center;
+	vertical-align: 50px;
+}
+div#div_map > div.row > div.map_block.possible:after
+{
+	content: "*";
 }
 div#div_map > div.row > div.map_block.selected
 {
@@ -60,7 +85,8 @@ div#div_map > div.row > div.map_void
 {
 	background-image: url('../img/herbe2.png');
 }
-div.action
+div.action,
+div[class*="liste_"]
 {
 	display: none;
 }

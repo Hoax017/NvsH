@@ -5,29 +5,32 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div id="GameMenu">
+		<div class="liste_action">
+			<button class="action_attaque">Attaque</button>
+			<button class="action_defance">Defence</button>
+		</div>
+		<div class="liste_attaque">
+			<button class="attaque_construire">Attaque Construire</button>
+			<button class="attaque_detruire">Attaque Detruire</button>
+		</div>
+		<div class="liste_defance">
+			<button class="defance_construire">Defence Construire</button>
+			<button class="defance_detruire">Defence Detruire</button>
+		</div>
+	</div>
 	<div class="web_center_block">
 		<div id="div_WhoPlay">
 			<div id="NaturePlay">Au tour de la Nature</div>
 			<div id="HumanPlay">Au tour Des Hommes</div>
 		</div>
 		<div id="div_map"></div>
-		<div class="action">
-			<button class="attaque">Attaque</button>
-			<button class="defance">Defence</button>
-		</div>
-		<div id="div_score">Coucou</div>
+		<div id="div_score"></div>
 	</div>
 </body>
-	<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-	<script type="text/javascript" src="js/map_gen.js"></script>
-	<script type="text/javascript">
-		var map_width = 12;
-		var map_height = 5;
-		var map_block_human = 0;
-		var map_block_nature = 0;
-		var map_block_nothing = 0;
-		var You_Are = "human";
-		GenMap(map_width, map_height);
-	</script>
-	<script type="text/javascript" src="js/InGame.js"></script>
+	<script type="text/JavaScript" src="js/jquery-2.2.1.min.js"></script>
+	<script type="text/JavaScript" src="js/function.js"></script>
+	<script type="text/JavaScript" src="js/map_gen.js"></script>
+	<script type="text/JavaScript" src="js/init_js.js"></script>
+	<script type="text/JavaScript" src="js/InGame.js"></script>
 </html>
