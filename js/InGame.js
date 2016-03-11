@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+	//AnimImg("button.active", "img/ss.png", 44, 10, 100);
 	$("button").click(function(){
 		var parent = $(this).parent();
 		parent.find("button.active").toggleClass("active");

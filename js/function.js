@@ -1,3 +1,32 @@
+function Next_Round ()
+{
+	var move_tab = [];
+	move_tab[1] = {
+					id: 1,
+					start_x: 0,
+					start_y: 0,
+					next_x: 1,
+					next_y: 0,
+					end_x: 8,
+					end_y: 8
+				};
+	console.log(move_tab.length);
+	console.log((move_tab[1].id));
+	delete move_tab[1];
+	console.log((move_tab[1].id));
+}
+
+function AnimImg(balise, img, taille, nb_frame, vitesse)
+{
+	var i = 1;
+	time = setInterval(function(){
+		if (i == (nb_frame + 1))
+			i = 1;
+		$(balise).css("background", "url(" + img + ") "+ (taille * i) +"px 0");
+		i++;
+	}, vitesse);
+}
+
 function initPlayer()
 {
 	switch (You_Are) {
@@ -13,10 +42,12 @@ function initPlayer()
 			break;
 	}
 }
+
 function actualiseScore()
 {
 	document.getElementById("div_score").innerHTML = "Nature: " + map_block_nature + " cases</br>Human: " + map_block_human + " cases</br>" + map_block_nothing + " cases a prendre";
 }
+
 function switchPlayer()
 {
 	switch (You_Are) {
@@ -28,8 +59,10 @@ function switchPlayer()
 			break;
 	}
 	actualiseScore();
+	Next_Round();
 	initPlayer();
 }
+
 function selectxy(id, char)
 {
 	var x = (id%map_width) - 1;
@@ -43,6 +76,7 @@ function selectxy(id, char)
 		return (y);
 	return(x);
 }
+
 function ZonneSeleted(div)
 {
 	if (last_possible >= 0 &&
@@ -58,6 +92,7 @@ function ZonneSeleted(div)
 	else
 		last_possible = -1;
 }
+
 function selectcircle(id, rond)
 {
 	var x = selectxy(id , "x");

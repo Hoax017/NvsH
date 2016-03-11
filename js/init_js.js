@@ -2,7 +2,8 @@
 var map_width_tmp = prompt("Taille De la Map: ", "Longeur");
 var map_height_tmp = prompt("Taille De la Map: ", "Hauteur");
 if (map_width_tmp != null && map_width_tmp != undefined &&
-	map_height_tmp != null && map_height_tmp != undefined)
+	map_height_tmp != null && map_height_tmp != undefined &&
+	map_height_tmp > 0 && map_width_tmp > 0)
 {
 	var map_width = parseInt(map_width_tmp);
 	var map_height = parseInt(map_height_tmp);
